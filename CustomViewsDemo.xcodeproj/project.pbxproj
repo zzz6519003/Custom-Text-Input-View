@@ -18,6 +18,8 @@
 		18A74CA31737D94A0022DED0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A74CA21737D94A0022DED0 /* Default-568h@2x.png */; };
 		18A74CA61737D94A0022DED0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A74CA51737D94A0022DED0 /* ViewController.m */; };
 		18A74CA91737D94A0022DED0 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A74CA71737D94A0022DED0 /* ViewController.xib */; };
+		18A74CB31737EC610022DED0 /* CustomTextInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A74CB11737EC610022DED0 /* CustomTextInputViewController.m */; };
+		18A74CB41737EC610022DED0 /* CustomTextInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A74CB21737EC610022DED0 /* CustomTextInputViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,9 @@
 		18A74CA41737D94A0022DED0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		18A74CA51737D94A0022DED0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		18A74CA81737D94A0022DED0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		18A74CB01737EC610022DED0 /* CustomTextInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTextInputViewController.h; sourceTree = "<group>"; };
+		18A74CB11737EC610022DED0 /* CustomTextInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTextInputViewController.m; sourceTree = "<group>"; };
+		18A74CB21737EC610022DED0 /* CustomTextInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTextInputViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +93,7 @@
 				18A74CA41737D94A0022DED0 /* ViewController.h */,
 				18A74CA51737D94A0022DED0 /* ViewController.m */,
 				18A74CA71737D94A0022DED0 /* ViewController.xib */,
+				18A74CAF1737E2700022DED0 /* Custom Text Input View */,
 				18A74C931737D94A0022DED0 /* Supporting Files */,
 			);
 			path = CustomViewsDemo;
@@ -105,6 +111,16 @@
 				18A74CA21737D94A0022DED0 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		18A74CAF1737E2700022DED0 /* Custom Text Input View */ = {
+			isa = PBXGroup;
+			children = (
+				18A74CB01737EC610022DED0 /* CustomTextInputViewController.h */,
+				18A74CB11737EC610022DED0 /* CustomTextInputViewController.m */,
+				18A74CB21737EC610022DED0 /* CustomTextInputViewController.xib */,
+			);
+			name = "Custom Text Input View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +179,7 @@
 				18A74CA11737D94A0022DED0 /* Default@2x.png in Resources */,
 				18A74CA31737D94A0022DED0 /* Default-568h@2x.png in Resources */,
 				18A74CA91737D94A0022DED0 /* ViewController.xib in Resources */,
+				18A74CB41737EC610022DED0 /* CustomTextInputViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +193,7 @@
 				18A74C991737D94A0022DED0 /* main.m in Sources */,
 				18A74C9D1737D94A0022DED0 /* AppDelegate.m in Sources */,
 				18A74CA61737D94A0022DED0 /* ViewController.m in Sources */,
+				18A74CB31737EC610022DED0 /* CustomTextInputViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
