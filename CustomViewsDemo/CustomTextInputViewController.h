@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CustomTextInputViewController : UIViewController
+@interface CustomTextInputViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
 @property (weak, nonatomic) IBOutlet UITextField *txtText;
@@ -16,5 +16,13 @@
 
 - (IBAction)acceptTextChanges:(id)sender;
 - (IBAction)cancelTextChanges:(id)sender;
+
+- (void)showCustomTextInputViewInView:(UIView *)targetView
+                             withText:(NSString *)text
+                         andWithTitle:(NSString *)title;
+
+- (void)closeTextInputView;
+
+- (NSString *)getText;
 
 @end
