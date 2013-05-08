@@ -8,9 +8,11 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () {
+    BOOL isEditingItem;
+    
+}
 
-@property (nonatomic, strong) NSMutableArray *sampleDataArray;
 
 @end
 
@@ -23,6 +25,10 @@
     [_table setDelegate:self];
     [_table setDataSource:self];
     _sampleDataArray = [[NSMutableArray alloc] init];
+    
+    _textInput = [[CustomTextInputViewController alloc] init];
+    [_textInput setDelegate:self];
+    isEditingItem = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -32,6 +38,8 @@
 }
 
 - (IBAction)addItem:(id)sender {
+    [_textInput showCustomTextInputViewInView:self.view withText:@"" andWithTitle:@"Add new Item"];
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -62,6 +70,28 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [_textInput showCustomTextInputViewInView:self.view withText:[_sampleDataArray objectAtIndex:[indexPath row]] andWithTitle:@"Edit item"];
+    isEditingItem = YES;
 }
+
+- (void)shouldAcceptTextChanges {
+//    [_sampleDataArray addObject:[_textInput getText]];
+//    [_table reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+//    [_textInput closeTextInputView];
+    if (!isEditingItem) {
+        [_sampleDataArray addObject:[_textInput getText]];
+        
+    } else {
+        NSUInteger t = [[_table indexPathForSelectedRow] row];
+        [_sampleDataArray replaceObjectAtIndex:t withObject:[_textInput getText]];
+        isEditingItem = NO;
+    }
+    [_table reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [_textInput closeTextInputView];
+}
+- (void)shouldDismissTextChanges {
+    [_textInput closeTextInputView];
+}
+
 
 @end

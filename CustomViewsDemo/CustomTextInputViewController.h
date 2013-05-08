@@ -10,6 +10,8 @@
 
 @interface CustomTextInputViewController : UIViewController <UITextFieldDelegate>
 
+@property (nonatomic, weak) id delegate;
+
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
 @property (weak, nonatomic) IBOutlet UITextField *txtText;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbarIAV;
@@ -24,5 +26,13 @@
 - (void)closeTextInputView;
 
 - (NSString *)getText;
+
+@end
+
+@protocol CustomTextInputViewControllerDelegate
+
+- (void)shouldAcceptTextChanges;
+
+- (void)shouldDismissTextChanges;
 
 @end

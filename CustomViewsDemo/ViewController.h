@@ -7,12 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomTextInputViewController.h"
 
-@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, CustomTextInputViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *table;
 
 - (IBAction)addItem:(id)sender;
+
+@property (nonatomic, strong) CustomTextInputViewController *textInput;
+@property (nonatomic, strong) NSMutableArray *sampleDataArray;
+
 
 
 @end

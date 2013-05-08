@@ -12,7 +12,7 @@
     CGFloat statusBarOffset;
 }
 
-- (void)keyboardWillShowWithNotification:(NSNotification *)notification;
+- (void)keyboardWillShowNotification:(NSNotification *)notification;
 
 @end
 
@@ -35,7 +35,7 @@
     [_txtText setInputAccessoryView:_toolbarIAV];
     [self.view setBackgroundColor:[UIColor colorWithRed:0.66 green:0.66 blue:0.66 alpha:0.75]];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowNotification) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowNotification:) name:UIKeyboardWillShowNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -96,7 +96,7 @@ if ([[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrien
     return [_txtText text];
 }
 
-- (void)keyboardWillShowWithNotification:(NSNotification *)notification {
+- (void)keyboardWillShowNotification:(NSNotification *)notification {
     NSDictionary *info = [notification userInfo];
     CGPoint keyboardOrigin = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].origin;
     CGFloat keyboardOriginY;
@@ -113,5 +113,16 @@ if ([[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrien
     // set the label's frame in turn
     [_lblTitle setFrame:CGRectMake(0.0, _txtText.frame.origin.y - _lblTitle.frame.size.height,
                                    _lblTitle.frame.size.width, _lblTitle.frame.size.height)];
+}
+
+- (IBAction)acceptTextChanges:(id)sender {
+    [self.delegate shouldAcceptTextChanges];
+}
+- (void)cancelTextChanges:(id)sender {
+   [self.delegate shouldDismissTextChanges];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.delegate shouldAcceptTextChanges];
 }
 @end
